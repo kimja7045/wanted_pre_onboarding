@@ -47,7 +47,8 @@ def render_error_message(mesage):
 class JobApplyView(views.APIView):
     def get(self, request):
         return Response(
-            list(JobApply.objects.all().values('job_posting', 'user'))
+            list(JobApply.objects.select_related('job_posting', 'user').
+                 values('job_posting', 'user'))
             )
 
     @transaction.atomic()
