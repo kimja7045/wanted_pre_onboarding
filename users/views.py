@@ -6,16 +6,19 @@ from django.forms import model_to_dict
 
 class UserView(views.APIView):
     def get(self, request):
-        return True
-        # return {''}
+        return JsonResponse(
+            list(User.objects.all().values()), safe=False
+            )
 
     @transaction.atomic()
     def post(self, request):
         data = request.data
         if not data.get('name'):
             return JsonResponse({
-                'success': False, 'detail': 'name은 필수입니다!'
+                'success': False, 'message': 'name 입력은 필수입니다!'
                 })
         user = User.objects.create(name=data['name'])
-        return JsonResponse(model_to_dict(user), status=status.HTTP_201_CREATED)
+        return JsonResponse(
+            model_to_dict(user), status=status.HTTP_201_CREATED
+            )
 

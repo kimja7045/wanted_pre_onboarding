@@ -10,7 +10,7 @@ router.register('companies', CompanyViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('a', include(router.urls)),
+    path('job-applies', JobApplyView.as_view()),
 
     # path('gym-teachers', GymTeacherReadView.as_view()),
 ]
