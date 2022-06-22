@@ -26,4 +26,5 @@ urlpatterns = [
     path('ping', ping_view),
     path('admin/', admin.site.urls),
     path('v1/', include('job_postings.urls')),
+    path('v1/', include('users.urls')),
 ]

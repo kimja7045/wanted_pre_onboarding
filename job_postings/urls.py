@@ -1,6 +1,4 @@
 from django.urls import path, include
-# from django.conf.url.static import static
-# from rest_framework.routers import SimpleRouter
 from rest_framework import routers
 from job_postings.views import *
 
