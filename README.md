@@ -19,7 +19,7 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-## 가산점요소
+## 반영한 가산점요소
  - 채용공고 검색 기능
  
  - 회사가올린다른채용공고 기능
